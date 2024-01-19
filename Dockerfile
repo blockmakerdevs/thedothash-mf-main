@@ -14,10 +14,10 @@ RUN npm install
 COPY . .
 
 # Construye la aplicación Next.js
-RUN npm run build
+RUN npx next build
 
 # Expone el puerto 3000 (o el puerto configurado en Next.js)
 EXPOSE 3000
 
 # Comando para iniciar la aplicación con los parámetros específicos
-CMD ["next", "start", "-H", "::", "--port", "$PORT"]
+CMD ["npx", "next", "start", "-H", "::", "--port", "$PORT"]
