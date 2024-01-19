@@ -1,5 +1,5 @@
-# Usa una imagen base de Node.js compatible con Railway
-FROM railwayapp/node:14
+# Usa una imagen base de Node.js
+FROM node:14
 
 # Establece el directorio de trabajo en la aplicación
 WORKDIR /usr/src/app
@@ -19,5 +19,5 @@ RUN npm run build
 # Expone el puerto 3000 (o el puerto configurado en Next.js)
 EXPOSE 3000
 
-# Comando para iniciar la aplicación
-CMD ["npm", "start"]
+# Comando para iniciar la aplicación con los parámetros específicos
+CMD ["next", "start", "-H", "::", "--port", "$PORT"]
